@@ -2,7 +2,7 @@ import { usePreviousRoute } from "@/composables/previous-route";
 import { useUserStore } from "@/stores/user-store";
 import { MONTH_NAMES, type MonthName } from "@api-contract";
 import { capitalize } from "lodash";
-import { CalendarIcon, CurrencyIcon } from "lucide-vue-next";
+import { CalendarIcon, CurrencyIcon, LayoutDashboardIcon } from "lucide-vue-next";
 import { createRouter, createWebHistory, type RouterOptions } from "vue-router";
 import type { ExtendedRouteRecord } from "./types";
 
@@ -21,6 +21,12 @@ const router = createRouter({
             redirect: () => {
                 return `/calendar/${new Date().getFullYear().toString()}`;
             },
+        },
+        {
+            path: "/dashboard",
+            name: "dashboard",
+            meta: { title: "Dashboard", showNav: true, navOptions: { icon: LayoutDashboardIcon, label: "Dashboard" } },
+            component: () => import("@/features/dashboard/dashboard-view.vue"),
         },
         {
             path: "/calendar",
