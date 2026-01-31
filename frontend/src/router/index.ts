@@ -19,7 +19,7 @@ const router = createRouter({
             path: "/",
             name: "home",
             redirect: () => {
-                return `/calendar/${new Date().getFullYear().toString()}`;
+                return "/dashboard";
             },
         },
         {
