@@ -25,7 +25,7 @@ const router = createRouter({
         {
             path: "/dashboard",
             name: "dashboard",
-            meta: { title: "Dashboard", showNav: true, navOptions: { icon: LayoutDashboardIcon, label: "Dashboard" } },
+            meta: { title: "Dashboard", requiresAuth: true, showNav: true, navOptions: { icon: LayoutDashboardIcon, label: "Dashboard" } },
             component: () => import("@/features/dashboard/dashboard-view.vue"),
         },
         {
